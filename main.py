@@ -6,14 +6,16 @@ import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 import time
 from PIL import Image, ImageDraw, ImageFont
+client_id = input("enter your spotify client id from the app you created earlier: ")
+client_secret = input("enter your spotify client secret from the app you created earlier: ")
 
 spotify_redirect_uri = "http://127.0.0.1:8888"
 
 print(f"Using Spotify Redirect URI: {spotify_redirect_uri}")
 
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
-    client_id="3f7af9c417d14d4dbe2c5bee5ac4e3e0",
-    client_secret="78a1fdc4469040c4b24786592d648c4b",
+    client_id,
+    client_secret,
     redirect_uri=spotify_redirect_uri,
     scope="user-read-playback-state"
 ))
