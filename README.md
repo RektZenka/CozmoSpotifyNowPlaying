@@ -8,4 +8,5 @@ make sure to have python 3.7.9 installed, other versions might work but i havent
 (could be from the microsoft store, or from python directly)
 ## installing libraries
 once installed, run this command to install the neccessary libraries for spotify and cozmo
+
 ``` pip install spotipy pycozmo ```
