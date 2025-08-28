@@ -1,4 +1,5 @@
 # CozmoSpotifyNowPlaying
+## i've honestly completely forgot about this and it barely works
 now playing for the anki cozmo robot
 i've only tested this setup on windows, but it should work on other operating systems.
 # installation
