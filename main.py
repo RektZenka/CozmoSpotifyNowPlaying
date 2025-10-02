@@ -56,38 +56,27 @@ def cozmo_program():
             now_playing = get_current_track()
             print(f"Now Playing: {now_playing}")
 
-            # Prepare text for display
             text_to_display = now_playing
-            if len(text_to_display) > 18: # Allow more characters if font is small, then add ellipsis
+            if len(text_to_display) > 18:
                 text_to_display = text_to_display[:15] + "..."
 
             # Create a blank 1-bit (black and white) image
-            img = Image.new('1', (display_width, display_height), color=0) # Black background
+            img = Image.new('1', (display_width, display_height), color=0)
             draw = ImageDraw.Draw(img)
 
-            # Calculate text size and position for centering
             bbox = draw.textbbox((0, 0), text_to_display, font=font)
             text_width = bbox[2] - bbox[0]
             text_height = bbox[3] - bbox[1]
 
-            # Calculate x, y for centering
             x = (display_width - text_width) / 2
             y = (display_height - text_height) / 2
-
-            # Draw text on the image (fill=255 means white pixels)
             draw.text((x, y), text_to_display, font=font, fill=255)
 
-            # Display the image on Cozmo's face in every loop iteration.
-            # This continuously refreshes the display, preventing idle animations
-            # from taking over and ensuring the text is always visible.
             robot.display_image(img)
 
-            # Update the last displayed text (still useful for internal logic/tracking)
             last_displayed_text = now_playing
 
-            # Wait for 5 seconds before checking for a new song and refreshing the display
             time.sleep(5)
 
-# --- Run the PyCozmo Program ---
 if __name__ == '__main__':
     cozmo_program()
